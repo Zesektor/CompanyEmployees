@@ -12,6 +12,8 @@ namespace Repository
 {
     public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
     {
+        private ICompanyRepository _companyRepositoryImplementation;
+
         public CompanyRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
@@ -21,5 +23,9 @@ namespace Repository
             FindAll(trackChanges)
                 .OrderBy(c => c.Name)
                 .ToList();
+
+        public void AnyMethodFromCompanyRepository()
+        {
+        }
     }
 }
